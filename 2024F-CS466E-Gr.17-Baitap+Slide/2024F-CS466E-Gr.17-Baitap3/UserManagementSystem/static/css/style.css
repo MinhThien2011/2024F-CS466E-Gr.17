@@ -1,0 +1,65 @@
+/* Main styles */
+:root {
+    --primary-color: #4e73df;
+    --secondary-color: #858796;
+    --success-color: #1cc88a;
+    --info-color: #36b9cc;
+    --warning-color: #f6c23e;
+    --danger-color: #e74a3b;
+}
+
+body {
+    background-color: #f8f9fc;
+}
+
+.navbar {
+    background-color: white;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+}
+
+.card {
+    border: none;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.table th {
+    background-color: #f8f9fc;
+    border-top: none;
+}
+
+.btn-icon {
+    padding: .375rem .75rem;
+}
+
+.btn-icon i {
+    margin-right: 0.5rem;
+}
+
+.stats-card {
+    border-left: .25rem solid;
+    border-radius: .35rem;
+}
+
+.stats-card.primary {
+    border-left-color: var(--primary-color);
+}
+
+.stats-card.success {
+    border-left-color: var(--success-color);
+}
+
+.stats-card.info {
+    border-left-color: var(--info-color);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}

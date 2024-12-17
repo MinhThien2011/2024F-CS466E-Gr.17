@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4>Thiết lập xác thực hai yếu tố</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <h5>Các bước thiết lập:</h5>
+                    <ol>
+                        <li>Tải ứng dụng Google Authenticator</li>
+                        <li>Quét mã QR bên dưới hoặc nhập mã bí mật</li>
+                        <li>Nhập mã xác thực từ ứng dụng để hoàn tất</li>
+                    </ol>
+                </div>
+
+                {% if qr_code %}
+                <div class="text-center mb-4">
+                    <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code">
+                    <p class="mt-2">Mã bí mật: <code>{{ secret }}</code></p>
+                </div>
+
+                <form method="POST" class="mb-4">
+                    <div class="mb-3">
+                        <label class="form-label">Nhập mã xác thực</label>
+                        <input type="text" name="code" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Xác nhận</button>
+                </form>
+
+                {% if backup_codes %}
+                <div class="alert alert-warning">
+                    <h5>Mã dự phòng:</h5>
+                    <p>Lưu các mã này để sử dụng khi không thể truy cập thiết bị:</p>
+                    <ul>
+                        {% for code in backup_codes %}
+                        <li><code>{{ code }}</code></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

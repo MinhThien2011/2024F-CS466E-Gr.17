@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Thống kê đăng nhập</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="loginChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Phân bố người dùng</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="userRoleChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5>Hoạt động gần đây</h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Thời gian</th>
+                        <th>Người dùng</th>
+                        <th>Hành động</th>
+                        <th>IP</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for activity in recent_activities %}
+                    <tr>
+                        <td>{{ activity.timestamp.strftime('%d/%m/%Y %H:%M') }}</td>
+                        <td>{{ activity.user.username }}</td>
+                        <td>{{ activity.action }}</td>
+                        <td>{{ activity.ip_address }}</td>
+                        <td>
+                            <span class="badge bg-{{ 'success' if activity.status == 'success' else 'danger' }}">
+                                {{ activity.status }}
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// Thêm code JavaScript để vẽ biểu đồ thống kê
+</script>
+{% endblock %} 

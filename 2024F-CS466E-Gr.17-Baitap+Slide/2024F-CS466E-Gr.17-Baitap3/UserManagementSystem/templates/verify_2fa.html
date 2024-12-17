@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h4>Xác thực hai yếu tố</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('main.verify_2fa') }}">
+                    <div class="mb-3">
+                        <label class="form-label">Nhập mã xác thực từ ứng dụng của bạn</label>
+                        <input type="text" name="code" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Xác thực</button>
+                </form>
+                <hr>
+                <p class="small">Không thể truy cập thiết bị xác thực? Sử dụng một trong các mã dự phòng của bạn.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
