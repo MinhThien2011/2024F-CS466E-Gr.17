@@ -140,4 +140,4 @@ python manage.py runserver
 -------------------------
 
 ## 📞 Liên hệ
-Mọi thắc mắc vui lòng liên hệ qua email: **minthienp50@gmail.com**
+Mọi thắc mắc vui lòng liên hệ qua email: **minhthienp50@gmail.com**
